@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../mp-1-project/img/ten-icon.jpg">
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>Tenebras</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- <form method="POST" action="http://localhost:8888/tenebras-server/auth.php" class="form-signin">
+            <h2 class="form-signin-heading">Create account here</h2>
+            <label for="firstName" class="sr-only">First Name</label>
+            <input name="firstName" type="text" id="firstName" class="form-control" placeholder="First Name" required="" autofocus="">
+            <label for="lastName" class="sr-only">Last Name</label>
+            <input name="lastName" type="text" id="lastName" class="form-control" placeholder="Last Name" required="" autofocus="">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form> -->
+
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Input Project</h2>
+            <label for="projectName" class="sr-only">Project Name</label>
+            <input name="projectName" type="text" id="projectName" class="form-control" placeholder="Project Name" required="" autofocus="">
+            
+            <label for="projectOwner" class="sr-only">Project Owner</label>            
+            <select name="projectOwner" id="projectOwner" class="form-control">
+            </select>
+
+
+            <label for="projectStatus" class="sr-only">Project Status</label>
+            <select name="projectStatus" id="projectStatus" class="form-control">
+                <option value="for-delivery">For Delivery</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="delivered">Delivered</option>
+                <option value="for-commissioning">For Commissioning</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <!-- for delivery, ongoing, delivered, for commissioning, completed -->
+            <label for="paymentStatus" class="sr-only">Payment Status</label>
+            <input name="paymentStatus" type="text" id="paymentStatus" class="form-control" placeholder="Payment Status" required="" autofocus="">
+            <label for="deliveryDate" class="sr-only">Delivery Date</label>
+            <input name="deliveryDate" type="date" id="deliveryDate" class="form-control" placeholder="Delivery Date" required="" autofocus="">
+            <label for="turnoverDate" class="sr-only">Turn Over Date</label>
+            <input name="turnoverDate" type="date" id="turnoverDate" class="form-control" placeholder="Turnover Date" required="" autofocus="">
+      
+            <button class="btn btn-lg btn-primary btn-block" type="button" id="createProjBtn">Create Project</button>
+        </form>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
