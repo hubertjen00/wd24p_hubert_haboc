@@ -1,0 +1,92 @@
+body {  
+    background-color: #8eaeed;
+    background-image: url("/public/img/ten-plant.jpg");
+    background-size: cover;
+    height: 900px;
+}
+
+  .logo {
+    width: 30px;
+  }
+
+  .navbar .container-fluid {
+    position: fixed;
+    background-color: black;
+    padding-top: 10px;
+    margin-top: 15px;
+    z-index: 1000;
+
+  }
+  
+  .form-signin {
+    max-width: 330px;
+    padding-top: 30px;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 3px;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 100;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: 5px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] input[type="date"]{
+    margin-bottom: 8px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .btn-dark {
+    margin-bottom: 8px;
+  }
+
+  h5, h2 {
+    text-align: center;
+  }
+
+  .navbar-brand {
+    margin-left: 15px;
+  }
+  .heading {
+    margin-top: 10px;
+    margin-bottom: -5px;
+    text-align: center;
+  }
+
+/* .dashboard {
+  text-align: left;
+} */
+
+label.form-label {
+  margin: auto;
+  width: 500px;
+}
+
+
+
+
+
+  
+
+
+
