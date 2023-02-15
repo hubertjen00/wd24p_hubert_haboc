@@ -12,12 +12,13 @@ class ProjectsController extends Controller
         $project = new Project();
 
         $project->project_name = $request->project_name;
-        $project->project_location = $request->project_location;
+        $project->project_owner = $request->project_owner;
         $project->project_type = $request->project_type;
+        $project->project_location = $request->project_location;
         $project->project_status = $request->project_status;
         $project->payment_status = $request->payment_status;
         $project->turnover_date = $request->turnover_date;
-        $project->remarks = $request->remarks;
+        
 
         $project->save();
 

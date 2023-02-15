@@ -58,4 +58,16 @@ class UsersController extends Controller
 
         else return User::find($id);
     }
+
+    function login(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+        $user = User::all()
+         ->where('email', '=', $email)
+         ->where('password', '=', $password)
+         ->first();
+
+        return $user;
+    }
 }

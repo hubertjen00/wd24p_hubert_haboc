@@ -1,52 +1,10 @@
 import './Sample.css';
 import React, { useState } from 'react';
-
-const columns = [
-    {
-        name: 'Project ID',
-        selector: row => row.id,
-        sortable: true,
-    },
-    {
-        name: 'Project Name',
-        selector: row => row.name,
-        sortable: true,
-    },
-    {
-        name: 'Project Owner',
-        selector: row => row.owner,
-        sortable: true,
-    },
-    {
-        name: 'Project Type',
-        selector: row => row.type,
-        sortable: true,
-    },
-    {
-        name: 'Project Location',
-        selector: row => row.location,
-        sortable: true,
-    },
-    {
-        name: 'Project Status',
-        selector: row => row.status,
-        sortable: true,
-    },
-    {
-        name: 'Payment Status',
-        selector: row => row.payment,
-        sortable: true,
-    },
-    {
-        name: 'Turnover Date',
-        selector: row => row.turnover,
-        sortable: true,
-    },
-];
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function CreateProj() {
 
-    const [id, setId] = useState(0);
     const [name, setName] = useState('');
     const [owner, setOwner] = useState('');
     const [type, setType] = useState('');
@@ -54,16 +12,8 @@ function CreateProj() {
     const [projStatus, setProjStatus] = useState('');
     const [paymentStatus, setPaymentStatus] = useState('');
     const [turnoverDate, setTurnoverDate] = useState('');
-    const [data, setData] = useState([{
-        id: 1,
-        name: 'Tenebras',
-        owner: 'Tenebras',
-        type: 'Tenebras',
-        location: 'Tenebras',
-        projStatus: 'Tenebras',
-        paymentStatus: 'Tenebras',
-        turnoverDate: '1-1-23',
-    }]);
+
+    const navigate = useNavigate();
 
     const handleChangeNameInput = (element) => {
         setName(element.target.value);
@@ -86,19 +36,21 @@ function CreateProj() {
     const handleChangeTurnoverDateInput = (element) => {
         setTurnoverDate(element.target.value);
     }
-    const handleSubmitClick = () => {
-        setId(data.length + 1);
+    const handleSubmitClick = async () => {
 
-        setData(oldData => [{
-            id: id,
-            name: name,
-            owner: owner,
-            type: type,
-            location: location,
-            status: projStatus,
-            payment: paymentStatus,
-            turnover: turnoverDate,
-        }, ...oldData]);
+        const requestData = {
+            project_name: name,
+            project_owner: owner,
+            project_type: type,
+            project_location: location,
+            project_status: projStatus,
+            payment_status: paymentStatus,
+            turnover_date: turnoverDate,
+        };
+
+        const response = await axios.post('http://localhost:8000/api/projects', requestData)
+        console.log(response);
+        navigate ('/dashboard');
     }
 
     return (
@@ -107,31 +59,31 @@ function CreateProj() {
                 <div class="mb-1">
                     <h2 className='dashboard'>Input Project Info</h2>
                     <label htmlFor="exampleInputEmail1" className="form-label">Project Name</label>
-                    <input onChange={handleChangeNameInput} type="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input onChange={handleChangeNameInput} type="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Project Name"/>
                 </div>
                 <div class="mb-1">
                     <label htmlFor="exampleInputPassword1" class="form-label">Project Owner</label>
-                    <input onChange={handleChangeOwnerInput} type="owner" className="form-control" id="exampleInputPassword1" />
+                    <input onChange={handleChangeOwnerInput} type="owner" className="form-control" id="exampleInputPassword1" placeholder="Project Owner"/>
                 </div>
                 <div class="mb-1">
                     <label htmlFor="exampleInputPassword1" class="form-label">Project Type</label>
-                    <input onChange={handleChangeTypeInput} type="owner" className="form-control" id="exampleInputPassword1" />
+                    <input onChange={handleChangeTypeInput} type="owner" className="form-control" id="exampleInputPassword1" placeholder="Project Type"/>
                 </div>
                 <div class="mb-1">
                     <label htmlFor="exampleInputPassword1" class="form-label">Project Location</label>
-                    <input onChange={handleChangeLocationInput} type="owner" className="form-control" id="exampleInputPassword1" />
+                    <input onChange={handleChangeLocationInput} type="owner" className="form-control" id="exampleInputPassword1" placeholder="Project Location"/>
                 </div>
                 <div class="mb-1">
                     <label htmlFor="exampleInputPassword1" class="form-label">Project Status</label>
-                    <input onChange={handleChangeProjStatusInput} type="owner" className="form-control" id="exampleInputPassword1" />
+                    <input onChange={handleChangeProjStatusInput} type="owner" className="form-control" id="exampleInputPassword1" placeholder="Project Status"/>
                 </div>
                 <div class="mb-1">
                     <label htmlFor="exampleInputPassword1" class="form-label">Payment Status</label>
-                    <input onChange={handleChangePaymentStatusInput} type="owner" className="form-control" id="exampleInputPassword1" />
+                    <input onChange={handleChangePaymentStatusInput} type="owner" className="form-control" id="exampleInputPassword1" placeholder="Payment Status"/>
                 </div>
                 <div class="mb-1">
                     <label htmlFor="exampleInputPassword1" class="form-label">Turnover Date</label>
-                    <input onChange={handleChangeTurnoverDateInput} type="owner" className="form-control" id="exampleInputPassword1" />
+                    <input onChange={handleChangeTurnoverDateInput} type="owner" className="form-control" id="exampleInputPassword1" placeholder="Turnover Date"/>
                 </div>
                 <button type="button" onClick={handleSubmitClick} className="btn btn-lg btn-dark btn-block d-grid gap-2 col-12 mx-auto">Submit</button>
             </form>
