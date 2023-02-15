@@ -9,44 +9,58 @@ import CreateProj from './CreateProj';
 
 const columns = [
     {
-        name: 'Project ID',
+        name: 'Project ID', 
+        center: true,
         selector: row => row.id,
         sortable: true,
     },
     {
         name: 'Project Name',
+        center: true,
         selector: row => row.name,
         sortable: true,
     },
     {
         name: 'Project Owner',
+        center: true,
         selector: row => row.owner,
         sortable: true,
     },
     {
         name: 'Project Type',
+        center: true,
         selector: row => row.type,
         sortable: true,
     },
     {
         name: 'Project Location',
+        center: true,
         selector: row => row.location,
         sortable: true,
     },
     {
         name: 'Project Status',
+        center: true,
         selector: row => row.status,
         sortable: true,
     },
     {
         name: 'Payment Status',
+        center: true,
         selector: row => row.payment,
         sortable: true,
     },
     {
         name: 'Turnover Date',
+        center: true,
         selector: row => row.turnover,
         sortable: true,
+    },
+    {
+        name: 'Action',
+        center: true,
+        cell: () => <div><button>Edit</button><button>Delete</button></div>
+        
     },
 ];
 
@@ -136,7 +150,6 @@ function Dashboard() {
                         striped
                         highlightOnHover
                         dense
-                        selectableRows
                     />
                     
                 </div>
