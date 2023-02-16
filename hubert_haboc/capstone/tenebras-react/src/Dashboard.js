@@ -9,8 +9,12 @@ import axios from 'axios';
 function Dashboard() {
 
     const onDelete =  async (projectId) => {
-        await axios.delete ('http://127.0.0.1:8000/api/projects/' + projectId)
-        window.location.reload()
+        const confirmDelete = window.confirm ('Confirm Delete?');
+            if (confirmDelete == true) {
+            await axios.delete ('http://127.0.0.1:8000/api/projects/' + projectId);
+            window.location.reload()
+        };
+
     }
 
     const columns = [
@@ -67,7 +71,7 @@ function Dashboard() {
     const [data, setData] = useState([]);
 
     const loginUser = localStorage.getItem('user_name');
-    if (loginUser === 'admin'){
+    if (loginUser === 'Admin'){
         columns.push(
             {
                 name: 'Action',
@@ -84,7 +88,7 @@ function Dashboard() {
         const projects = response.data;
         let filteredProjs = []
         const loginUser = localStorage.getItem('user_name')
-        if (loginUser === 'admin') {
+        if (loginUser === 'Admin') {
             filteredProjs = projects;
         }
 
@@ -103,14 +107,17 @@ function Dashboard() {
         loadData()
     }, [])
 
+    const isAdmin = localStorage.getItem('user_name') === 'Admin';
+   
+
     return (
         <div>
             {/* <button onClick={loadData}>Click</button> */}
             <div className='row'>
                 <div className='col-12 p-4'>
-                    <h3>Hello {loginUser}</h3>
+                    <h3>Hello {loginUser}!</h3>
                     <h2 className='dashboard'>My Dashboard</h2>
-                    <h4><Link to = "/createProj">Create New Project</Link></h4>
+                    {isAdmin && <h4><Link to = "/createProj">Create New Project</Link></h4>}
                     <DataTable
                         Title="Feature List"
                         columns={columns}

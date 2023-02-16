@@ -36,6 +36,7 @@ function CreateProj() {
     const handleChangeTurnoverDateInput = (element) => {
         setTurnoverDate(element.target.value);
     }
+    
     const handleSubmitClick = async () => {
 
         const requestData = {
@@ -47,10 +48,12 @@ function CreateProj() {
             payment_status: paymentStatus,
             turnover_date: turnoverDate,
         };
-
-        const response = await axios.post('http://localhost:8000/api/projects', requestData)
-        console.log(response);
-        navigate ('/dashboard');
+        
+        const confirmResult = window.confirm ('Confirm Submission');
+         if (confirmResult == true) {
+            axios.post('http://localhost:8000/api/projects', requestData);
+            navigate ('/dashboard')
+         }; 
     }
 
     return (

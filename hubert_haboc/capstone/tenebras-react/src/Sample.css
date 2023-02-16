@@ -3,7 +3,8 @@ body {
     background-image: url("/public/img/ten-plant.jpg");
     background-size: cover;
     background-attachment: fixed;
-    height: 900px;
+    height: 800px;
+    width: 100%;
 }
 
   .logo {
@@ -61,7 +62,7 @@ body {
     margin-bottom: 8px;
   }
 
-  h5, h2 {
+  h5, h2, h3 {
     text-align: center;
   }
  
@@ -78,6 +79,7 @@ label.form-label {
   margin: auto;
   width: 500px;
 }
+
 
 
 
